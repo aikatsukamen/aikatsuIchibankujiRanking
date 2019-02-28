@@ -92,7 +92,7 @@ const getRanking = async () => {
             url: 'https://script.google.com/macros/s/AKfycbx_5LNDwQoA3r60vZzceNJMY49DxxHxfW3cnC9K1P8nYLpHaxeN/exec',
             json: true,
             body: {
-                date: new Date(),
+                date: exports.converDateToStr(new Date()),
                 rankList
             }
         };
@@ -105,6 +105,18 @@ const getRanking = async () => {
 };
 getRanking();
 new cron_1.CronJob('*/15 * * * *', getRanking).start();
+/**
+ * Dateオブジェクトを、YYYY/MM/DD HH:MM形式にする
+ * @param date
+ */
+exports.converDateToStr = (date) => {
+    const year = `0000${date.getFullYear()}`.slice(-4);
+    const month = `00${date.getMonth() + 1}`.slice(-2);
+    const day = `00${date.getDate()}`.slice(-2);
+    const hour = `00${date.getHours()}`.slice(-2);
+    const minute = `00${date.getMinutes()}`.slice(-2);
+    return `${year}/${month}/${day} ${hour}:${minute}`;
+};
 /**
  * シャットダウン処理
  *

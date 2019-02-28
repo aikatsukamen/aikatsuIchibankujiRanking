@@ -30,10 +30,10 @@
   },
   "scripts": {
     "start": "node build/js/index.js",
-    "service:start": "pm2 start build/js/index.js --name chihiro",
-    "service:restart": "pm2 restart chihiro",
-    "service:stop": "pm2 stop chihiro",
-    "service:status": "pm2 show chihiro",
+    "service:start": "pm2 start build/js/index.js --name ichiban",
+    "service:restart": "pm2 restart ichiban",
+    "service:stop": "pm2 stop ichiban",
+    "service:status": "pm2 show ichiban",
     "build": "tsc",
     "watch": "tsc --watch",
     "tslint-check": "tslint-config-prettier-check ./tslint.json"
